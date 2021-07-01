@@ -13,13 +13,12 @@ const connection = mysql.createConnection({
     password:'',
     database:'nodelogin'
 })
-const app = express;
-//create a session
-app.use(session({
-    secret: 'secret',
+var app = express();
+app.use(session({ 
+    secret: '123456cat',
     resave: true,
     saveUninitialized: true
-}))
+  }))
 app.get('/', (req, res)=>{
     res.sendFile(path.join(__dirname + '/register.html'));
 })
